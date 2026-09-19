@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="color-scheme" content="light">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Request Membership — Haus of Haze™</title>
 <style>
@@ -22,15 +23,20 @@
 </style>
 <style>
   :root{
-    --bg: #0d0a08;
-    --bg-raised: #14100c;
-    --field-bg: #17130e;
-    --gold: #c7a56b;
-    --gold-dim: #8a7452;
-    --gold-soft: rgba(199,165,107,0.35);
-    --gold-faint: rgba(199,165,107,0.16);
-    --cream: #ece4d6;
-    --cream-dim: #b8ab97;
+    --bg: #fdfbf7;
+    --bg-raised: #f6f1ea;
+    --field-bg: #ffffff;
+    --gold: #c1943f;
+    --gold-dim: #8a6f3f;
+    --gold-soft: rgba(193,148,63,0.4);
+    --gold-faint: rgba(193,148,63,0.28);
+    --title-gold: #7f6227;
+    --ink: #2a2620;
+    --ink-dim: #6b6255;
+  }
+
+  html{
+    color-scheme: light;
   }
 
   *{ box-sizing: border-box; }
@@ -40,7 +46,7 @@
   body{
     margin:0;
     min-height: 100vh;
-    color: var(--cream-dim);
+    color: var(--ink-dim);
     font-family: 'Avenir Book', sans-serif;
     font-weight: 400;
     line-height: 1.7;
@@ -76,7 +82,7 @@
     font-weight: normal;
     font-size: 40px;
     line-height: 1.15;
-    color: var(--cream);
+    color: var(--title-gold);
     margin: 0 0 14px;
     opacity: 0;
     animation: rise 0.8s ease-out 0.1s forwards;
@@ -84,7 +90,7 @@
 
   .intro{
     font-size: 14px;
-    color: var(--cream-dim);
+    color: var(--ink-dim);
     max-width: 360px;
     margin: 0 auto 36px;
     opacity: 0;
@@ -122,22 +128,19 @@
 
   input, select, textarea{
     width: 100%;
-    background: var(--field-bg);
+    background-color: #ffffff;
+    color-scheme: light;
     border: 1px solid var(--gold-faint);
     border-radius: 3px;
     padding: 13px 14px;
     font-family: 'Avenir Book', sans-serif;
     font-weight: 400;
     font-size: 15px;
-    color: var(--cream);
+    color: var(--ink);
     outline: none;
     transition: border-color 0.2s ease, background 0.2s ease;
     appearance: none;
     -webkit-appearance: none;
-  }
-
-  input[type="date"]{
-    color-scheme: dark;
   }
 
   textarea{
@@ -154,11 +157,11 @@
     padding-right: 34px;
   }
 
-  input::placeholder, textarea::placeholder{ color: #5a5148; }
+  input::placeholder, textarea::placeholder{ color: #a89a86; }
 
   input:focus, select:focus, textarea:focus{
     border-color: var(--gold);
-    background-color: #1a150f;
+    background-color: #ffffff;
   }
 
   input:focus-visible, select:focus-visible, textarea:focus-visible{
@@ -197,6 +200,31 @@
     width: 1px;
     height: 1px;
     overflow: hidden;
+  }
+
+  /* password field with show / hide toggle */
+  .pw{ position: relative; }
+  .pw input{ padding-right: 68px; }
+  .pw-toggle{
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 10px;
+    font-family: 'Avenir Book', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--gold-dim);
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  .pw-toggle:hover{ color: var(--title-gold); }
+  .pw-toggle:focus-visible{
+    outline: 1px solid var(--gold);
+    outline-offset: 1px;
   }
 
   fieldset{
@@ -258,7 +286,7 @@
 
   .checkbox-row span{
     font-size: 14px;
-    color: var(--cream-dim);
+    color: var(--ink-dim);
     line-height: 1.5;
   }
 
@@ -270,15 +298,15 @@
     border-radius: 3px;
   }
   .consent-row span{
-    color: var(--cream);
+    color: var(--ink);
     font-size: 13px;
   }
 
   button.submit{
     width: 100%;
-    background: var(--gold);
-    color: #17130e;
-    border: none;
+    background: transparent;
+    color: var(--title-gold);
+    border: 1px solid var(--gold);
     border-radius: 3px;
     padding: 14px;
     font-family: 'Avenir Book', sans-serif;
@@ -286,13 +314,13 @@
     font-size: 14px;
     letter-spacing: 0.06em;
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.15s ease;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
     margin-top: 6px;
   }
-  button.submit:hover{ background: #d4b378; }
+  button.submit:hover{ background: var(--gold); color: #17130e; }
   button.submit:active{ transform: scale(0.99); }
   button.submit:focus-visible{
-    outline: 2px solid var(--cream);
+    outline: 2px solid var(--ink);
     outline-offset: 2px;
   }
 
@@ -306,7 +334,7 @@
   }
   .response-note p{
     font-size: 13px;
-    color: var(--cream-dim);
+    color: var(--ink-dim);
     margin: 0;
   }
   .response-note a{
@@ -338,7 +366,7 @@
   .privacy{
     text-align: center;
     font-size: 12px;
-    color: var(--cream-dim);
+    color: var(--ink-dim);
     line-height: 1.7;
     opacity: 0;
     animation: rise 0.8s ease-out 0.48s forwards;
@@ -410,6 +438,15 @@
     <div class="field">
       <label for="email">Email address</label>
       <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+    </div>
+
+    <div class="field">
+      <label for="password">Create a password</label>
+      <div class="pw">
+        <input type="password" id="password" name="password" autocomplete="new-password" minlength="8" required>
+        <button type="button" class="pw-toggle" id="pw-toggle" aria-controls="password" aria-pressed="false">Show</button>
+      </div>
+      <p class="hint">Use at least 8 characters. You'll use this with your email address to log in.</p>
     </div>
 
     <div class="field">
@@ -724,6 +761,16 @@
     var confirmationName = document.getElementById('confirmation-name');
     var sendAnother = document.getElementById('send-another');
 
+    var pw = document.getElementById('password');
+    var pwToggle = document.getElementById('pw-toggle');
+
+    pwToggle.addEventListener('click', function(){
+      var show = pw.type === 'password';
+      pw.type = show ? 'text' : 'password';
+      pwToggle.textContent = show ? 'Hide' : 'Show';
+      pwToggle.setAttribute('aria-pressed', show ? 'true' : 'false');
+    });
+
     var submitBtn = document.getElementById('membership-submit');
     var errorMsg = document.getElementById('membership-error');
 
@@ -766,6 +813,9 @@
 
     sendAnother.addEventListener('click', function(){
       form.reset();
+      pw.type = 'password';
+      pwToggle.textContent = 'Show';
+      pwToggle.setAttribute('aria-pressed', 'false');
       confirmationView.hidden = true;
       formView.hidden = false;
     });
